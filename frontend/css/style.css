@@ -1,0 +1,177 @@
+/* style.css
+   GameArena - shared styles for the whole frontend.
+   Bootstrap 5 handles layout/grid; this file adds the brand theme,
+   custom cards, animations, and small tweaks. */
+
+:root {
+  --ga-primary: #6c2bd9;      /* deep esports purple */
+  --ga-primary-dark: #4c1d95;
+  --ga-accent: #22d3ee;       /* cyan accent */
+  --ga-dark: #0f1117;
+  --ga-dark-2: #171a24;
+  --ga-light: #f4f5fb;
+  --ga-success: #22c55e;
+  --ga-warning: #f59e0b;
+  --ga-danger: #ef4444;
+  --ga-radius: 14px;
+}
+
+body {
+  background-color: var(--ga-light);
+  font-family: "Segoe UI", Roboto, -apple-system, sans-serif;
+  color: #1f2333;
+}
+
+/* ---------- Navbar ---------- */
+.ga-navbar {
+  background: linear-gradient(90deg, var(--ga-dark) 0%, var(--ga-primary-dark) 100%);
+}
+.ga-navbar .navbar-brand {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #fff !important;
+}
+.ga-navbar .navbar-brand span {
+  color: var(--ga-accent);
+}
+.ga-navbar .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+}
+.ga-navbar .nav-link:hover,
+.ga-navbar .nav-link.active {
+  color: var(--ga-accent) !important;
+}
+
+/* ---------- Hero ---------- */
+.ga-hero {
+  background: radial-gradient(circle at top left, var(--ga-primary-dark), var(--ga-dark) 70%);
+  color: #fff;
+  border-radius: var(--ga-radius);
+  padding: 4rem 2rem;
+}
+.ga-hero h1 {
+  font-weight: 800;
+}
+.ga-hero .badge-accent {
+  background-color: var(--ga-accent);
+  color: #0f1117;
+}
+
+/* ---------- Cards ---------- */
+.ga-card {
+  border: none;
+  border-radius: var(--ga-radius);
+  box-shadow: 0 4px 18px rgba(15, 17, 23, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: #fff;
+}
+.ga-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(15, 17, 23, 0.14);
+}
+.ga-card .card-img-top {
+  height: 8px;
+  background: linear-gradient(90deg, var(--ga-primary), var(--ga-accent));
+  border-top-left-radius: var(--ga-radius);
+  border-top-right-radius: var(--ga-radius);
+}
+
+.ga-stat-card {
+  border-radius: var(--ga-radius);
+  border: none;
+  color: #fff;
+  padding: 1.25rem;
+  box-shadow: 0 4px 18px rgba(15, 17, 23, 0.1);
+}
+.ga-stat-card h3 { font-weight: 800; margin-bottom: 0; }
+.ga-stat-card .icon { font-size: 1.8rem; opacity: 0.85; }
+.bg-ga-1 { background: linear-gradient(135deg, #6c2bd9, #9333ea); }
+.bg-ga-2 { background: linear-gradient(135deg, #0891b2, #22d3ee); }
+.bg-ga-3 { background: linear-gradient(135deg, #16a34a, #4ade80); }
+.bg-ga-4 { background: linear-gradient(135deg, #ea580c, #f97316); }
+
+/* ---------- Buttons ---------- */
+.btn-ga-primary {
+  background-color: var(--ga-primary);
+  border-color: var(--ga-primary);
+  color: #fff;
+}
+.btn-ga-primary:hover {
+  background-color: var(--ga-primary-dark);
+  border-color: var(--ga-primary-dark);
+  color: #fff;
+}
+.btn-ga-outline {
+  border-color: var(--ga-primary);
+  color: var(--ga-primary);
+}
+.btn-ga-outline:hover {
+  background-color: var(--ga-primary);
+  color: #fff;
+}
+
+/* ---------- Status badges ---------- */
+.badge-upcoming { background-color: #3b82f6; }
+.badge-ongoing { background-color: var(--ga-warning); color: #1f2333; }
+.badge-completed { background-color: var(--ga-success); }
+.badge-pending { background-color: #9ca3af; }
+.badge-approved { background-color: var(--ga-success); }
+.badge-rejected { background-color: var(--ga-danger); }
+.badge-cancelled { background-color: #6b7280; }
+
+/* ---------- Tables ---------- */
+.table-ga thead {
+  background-color: var(--ga-dark);
+  color: #fff;
+}
+
+/* ---------- Leaderboard rank ---------- */
+.rank-1 { color: #eab308; font-weight: 800; }
+.rank-2 { color: #94a3b8; font-weight: 800; }
+.rank-3 { color: #b45309; font-weight: 800; }
+
+/* ---------- Auth pages ---------- */
+.ga-auth-wrapper {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ga-auth-card {
+  max-width: 440px;
+  width: 100%;
+  border-radius: var(--ga-radius);
+  box-shadow: 0 10px 30px rgba(15, 17, 23, 0.12);
+}
+
+/* ---------- Simple animations ---------- */
+.fade-in-up {
+  animation: fadeInUp 0.5s ease both;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ga-footer {
+  background-color: var(--ga-dark);
+  color: rgba(255, 255, 255, 0.7);
+}
+.ga-footer a { color: var(--ga-accent); text-decoration: none; }
+
+/* ---------- Loading spinner helper ---------- */
+.ga-spinner-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+/* ---------- Pagination ---------- */
+.pagination .page-link {
+  color: var(--ga-primary);
+}
+.pagination .page-item.active .page-link {
+  background-color: var(--ga-primary);
+  border-color: var(--ga-primary);
+}
